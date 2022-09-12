@@ -359,7 +359,7 @@ namespace SuperNewRoles.Mode.BattleRoyal
                     }
                     foreach (PlayerControl p in CachedPlayer.AllPlayers)
                     {
-                        if (AmongUsClient.Instance.AmHost) p.RpcSetName($"<color=#fc0000>{HostName}");
+                        if (AmongUsClient.Instance.AmHost) p.RpcSetName(HostName);
                         else p.RpcSetName(p.GetDefaultName());
                         if (BROption.BRHideName.GetBool() && BROption.BattleRoyalMode.GetBool()) HideName();
                     }
