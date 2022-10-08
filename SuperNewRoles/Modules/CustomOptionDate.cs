@@ -183,10 +183,10 @@ namespace SuperNewRoles.Modules
         public static CustomOption SpeederCoolTime;
         public static CustomOption SpeederDurationTime;
 
-        public static CustomRoleOption GuesserOption;
-        public static CustomOption GuesserPlayerCount;
-        public static CustomOption GuesserShortOneMeetingCount;
-        public static CustomOption GuesserShortMaxCount;
+        public static CustomRoleOption NiceGuesserOption;
+        public static CustomOption NiceGuesserPlayerCount;
+        public static CustomOption NiceGuesserShortOneMeetingCount;
+        public static CustomOption NiceGuesserShortMaxCount;
 
         public static CustomRoleOption EvilGuesserOption;
         public static CustomOption EvilGuesserPlayerCount;
@@ -822,7 +822,7 @@ namespace SuperNewRoles.Modules
 
         public static CustomRoleOption ConnectKillerOption;
         public static CustomOption ConnectKillerPlayerCount;
-        
+
         public static CustomRoleOption WaveCannonOption;
         public static CustomOption WaveCannonPlayerCount;
         public static CustomOption WaveCannonCoolTime;
@@ -844,7 +844,8 @@ namespace SuperNewRoles.Modules
         public static CustomOption DoppelgangerCoolTime;
         public static CustomOption DoppelgangerSucTime;
         public static CustomOption DoppelgangerNotSucTime;
-        
+
+
         public static CustomRoleOption WaveCannonJackalOption;
         public static CustomOption WaveCannonJackalPlayerCount;
         public static CustomOption WaveCannonJackalCoolTime;
@@ -1729,6 +1730,16 @@ namespace SuperNewRoles.Modules
             TaskerLongTask = taskeroption.Item3;
             TaskerIsKillCoolTaskNow = Create(1011, false, CustomOptionType.Impostor, "TaskerIsKillCoolTaskNow", true, TaskerOption);
             TaskerCanKill = Create(1012, false, CustomOptionType.Impostor, "TaskerCanKill", true, TaskerOption);
+
+            NiceGuesserOption = new(971, false, CustomOptionType.Crewmate, "NiceGuesserName", RoleClass.NiceGuesser.color, 1);
+            NiceGuesserPlayerCount = Create(972, false, CustomOptionType.Crewmate, "SettingPlayerCountName", CrewPlayers[0], CrewPlayers[1], CrewPlayers[2], CrewPlayers[3], NiceGuesserOption);
+            NiceGuesserShortMaxCount = Create(977, false, CustomOptionType.Crewmate, "EvilGuesserShortMaxCountSetting", 2f, 1f, 15f, 1f, NiceGuesserOption);
+            NiceGuesserShortOneMeetingCount = Create(978, false, CustomOptionType.Crewmate, "EvilGuesserOneMeetingShortSetting", true, NiceGuesserOption);
+
+            EvilGuesserOption = new(973, false, CustomOptionType.Impostor, "EvilGuesserName", RoleClass.EvilGuesser.color, 1);
+            EvilGuesserPlayerCount = Create(974, false, CustomOptionType.Impostor, "SettingPlayerCountName", ImpostorPlayers[0], ImpostorPlayers[1], ImpostorPlayers[2], ImpostorPlayers[3], EvilGuesserOption);
+            EvilGuesserShortMaxCount = Create(975, false, CustomOptionType.Impostor, "EvilGuesserShortMaxCountSetting", 2f, 1f, 15f, 1f, EvilGuesserOption);
+            EvilGuesserShortOneMeetingCount = Create(976, false, CustomOptionType.Impostor, "EvilGuesserOneMeetingShortSetting", true, EvilGuesserOption);
             //表示設定
 
             QuarreledOption = Create(432, true, CustomOptionType.Neutral, Cs(RoleClass.Quarreled.color, "QuarreledName"), false, null, isHeader: true);
