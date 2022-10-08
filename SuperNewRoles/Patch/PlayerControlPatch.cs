@@ -808,6 +808,15 @@ namespace SuperNewRoles.Patches
         {
             EvilGambler.MurderPlayerPrefix(__instance, target);
             Doppelganger.KillCoolSetting.SHRMurderPlayer(__instance, target);
+            if (Roles.CrewMate.Knight.GuardedPlayers.Contains(target.PlayerId))
+            {
+                var Writer = RPCHelper.StartRPC(CustomRPC.KnightProtectClear);
+                Writer.Write(target.PlayerId);
+                Writer.EndRPC();
+                RPCProcedure.KnightProtectClear(target.PlayerId);
+                target.protectedByGuardian = true;
+                return false;
+            }
             if (ModeHandler.IsMode(ModeId.Default))
             {
                 target.resetChange();

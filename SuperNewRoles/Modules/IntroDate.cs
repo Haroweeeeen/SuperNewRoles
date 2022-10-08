@@ -226,6 +226,8 @@ namespace SuperNewRoles.Modules
         public static IntroDate DoppelgangerIntro = new("Doppelganger", RoleClass.Doppelganger.color, 1, RoleId.Doppelganger, TeamRoleType.Impostor);
         public static IntroDate WaveCannonJackalIntro = new("WaveCannonJackal", RoleClass.WaveCannonJackal.color, 1, RoleId.WaveCannonJackal, TeamRoleType.Neutral);
         public static IntroDate ConjurerIntro = new("Conjurer", Conjurer.color, 1, RoleId.Conjurer, TeamRoleType.Impostor);
+        public static IntroDate WerewolfIntro = new("Werewolf", RoleClass.Werewolf.color, 1, RoleId.Werewolf, TeamRoleType.Impostor);
+        public static IntroDate KnightIntro = new("Knight", Roles.CrewMate.Knight.color, 1, RoleId.Knight, TeamRoleType.Crewmate);
         //イントロオブジェ
     }
 }

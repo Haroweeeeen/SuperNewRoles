@@ -185,6 +185,8 @@ namespace SuperNewRoles.Roles
             Doppelganger.ClearAndReload();
             WaveCannonJackal.ClearAndReload();
             Conjurer.ClearAndReload();
+            Werewolf.ClearAndReload();
+            CrewMate.Knight.ClearAndReload();
             //ロールクリア
             Quarreled.ClearAndReload();
             Lovers.ClearAndReload();
@@ -199,12 +201,14 @@ namespace SuperNewRoles.Roles
             public static int Count;
             public static Color32 color = new(190, 86, 235, byte.MaxValue);
             public static Sprite GetButtonSprite() => ModHelpers.LoadSpriteFromResources("SuperNewRoles.Resources.SoothSayerButton.png", 115f);
+            public static bool CanFirstWhite;
             public static void ClearAndReload()
             {
                 SoothSayerPlayer = new();
                 DisplayedPlayer = new();
                 DisplayMode = CustomOptions.SoothSayerDisplayMode.GetBool();
                 Count = CustomOptions.SoothSayerMaxCount.GetInt();
+                CanFirstWhite = CustomOptions.SoothSayerFirstWhiteOption.GetBool();
             }
         }
         public static class Jester
@@ -375,12 +379,14 @@ namespace SuperNewRoles.Roles
             public static Color32 color = new(0, 191, 255, byte.MaxValue);
             public static bool DisplayMode;
             public static float MaxCount;
+            public static PlayerControl ExilePlayer;
 
             public static void ClearAndReload()
             {
                 SpiritMediumPlayer = new();
                 DisplayMode = CustomOptions.SpiritMediumDisplayMode.GetBool();
                 MaxCount = CustomOptions.SpiritMediumMaxCount.GetFloat();
+                ExilePlayer = null;
             }
         }
         public static class SpeedBooster
@@ -2772,6 +2778,17 @@ namespace SuperNewRoles.Roles
             public static void ClearAndReload()
             {
                 gm = null;
+            }
+        }
+        public static class Werewolf
+        {
+            public static List<PlayerControl> WerewolfPlayer;
+            public static Color32 color = ImpostorRed;
+            public static bool IsShooted;
+            public static void ClearAndReload()
+            {
+                WerewolfPlayer = new();
+                IsShooted = false;
             }
         }
         //新ロールクラス

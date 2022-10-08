@@ -165,10 +165,6 @@ namespace SuperNewRoles
             {
                 AllRoleSetClass.AllRoleSet();
             }
-            else if (ModeHandler.IsMode(ModeId.Werewolf))
-            {
-                Mode.Werewolf.RoleSelectHandler.RoleSelect();
-            }
             else if (ModeHandler.IsMode(ModeId.NotImpostorCheck))
             {
                 Mode.NotImpostorCheck.SelectRolePatch.SetDesync();
@@ -946,6 +942,8 @@ namespace SuperNewRoles
                 RoleId.Doppelganger => CustomOptions.DoppelgangerPlayerCount.GetFloat(),
                 RoleId.WaveCannonJackal => CustomOptions.WaveCannonJackalPlayerCount.GetFloat(),
                 RoleId.Conjurer => Roles.Impostor.Conjurer.PlayerCount.GetFloat(),
+                RoleId.Werewolf => CustomOptions.WerewolfPlayerCount.GetFloat(),
+                RoleId.Knight => Roles.CrewMate.Knight.KnightPlayerCount.GetFloat(),
                 //プレイヤーカウント
                 _ => 1,
             };
@@ -987,6 +985,11 @@ namespace SuperNewRoles
                 if (option == null) continue;
                 var selection = option.GetSelection();
                 if (selection != 0)
+                if (intro.RoleId != RoleId.DefaultRole &&
+                    (intro.RoleId != RoleId.Nun || (MapNames)PlayerControl.GameOptions.MapId == MapNames.Airship)
+                    && !intro.IsGhostRole
+                    && (intro.RoleId != RoleId.Werewolf || ModeHandler.IsMode(ModeId.Werewolf))
+                    && (intro.RoleId != RoleId.Knight || ModeHandler.IsMode(ModeId.Werewolf)))
                 {
                     if (selection == 10)
                     {
