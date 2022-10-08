@@ -17,9 +17,12 @@ namespace SuperNewRoles.Mode.BattleRoyal
             }
             return Teams;
         }
-        public static (string, string, Color) IntroHandler(IntroCutscene __instance)
+        public static void IntroHandler(IntroCutscene __instance)
         {
-            return (ModTranslation.GetString("BattleRoyalModeName"), "", new Color32(116, 80, 48, byte.MaxValue));
+            __instance.BackgroundBar.material.color = Color.white;
+            __instance.TeamTitle.text = ModTranslation.GetString("BattleRoyalModeName");
+            __instance.TeamTitle.color = new Color32(116, 80, 48, byte.MaxValue);
+            __instance.ImpostorText.text = "";
         }
     }
 }

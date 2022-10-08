@@ -43,8 +43,6 @@ namespace SuperNewRoles.Modules
         public static CustomOption IsAlwaysReduceCooldownExceptInVent;
         public static CustomOption IsAlwaysReduceCooldownExceptOnTask;
 
-        public static CustomOption IsOldMode;
-
         public static CustomOption IsChangeTheWinCondition;
 
         public static CustomOption DetectiveRate;
@@ -937,10 +935,6 @@ namespace SuperNewRoles.Modules
 
             enableMirroMap = Create(9, false, CustomOptionType.Generic, "enableMirroMap", false);
             enableAgartha = Create(970, false, CustomOptionType.Generic, "AgarthaName", true, null, isHeader: true);
-
-            IsOldMode = Create(1027, false, CustomOptionType.Generic, "IsOldMode", false, null, isHeader: true);
-
-
             if (ConfigRoles.DebugMode.Value)
             {
                 IsDebugMode = Create(10, true, CustomOptionType.Generic, "デバッグモード", false, null, isHeader: true);

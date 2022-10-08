@@ -1,7 +1,6 @@
 using HarmonyLib;
 using SuperNewRoles.Mode.SuperHostRoles;
 using SuperNewRoles.Patch;
-using UnityEngine;
 using static SuperNewRoles.Patch.CheckGameEndPatch;
 
 namespace SuperNewRoles.Mode
@@ -111,11 +110,10 @@ namespace SuperNewRoles.Mode
             }
             return new Il2CppSystem.Collections.Generic.List<PlayerControl>();
         }
-        public static (string, string, Color) IntroHandler(IntroCutscene __instance)
+        public static void IntroHandler(IntroCutscene __instance)
         {
-            if (IsMode(ModeId.BattleRoyal)) return BattleRoyal.Intro.IntroHandler(__instance);
-            else if (IsMode(ModeId.Zombie)) return Zombie.Intro.IntroHandler(__instance);
-            return ("NONE", "NONE", new());
+            if (IsMode(ModeId.BattleRoyal)) BattleRoyal.Intro.IntroHandler(__instance);
+            else if (IsMode(ModeId.Zombie)) Zombie.Intro.IntroHandler(__instance);
         }
         public static void YouAreIntroHandler(IntroCutscene __instance)
         {
