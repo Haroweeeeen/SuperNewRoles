@@ -941,6 +941,7 @@ namespace SuperNewRoles
                 RoleId.WaveCannon => CustomOptions.WaveCannonPlayerCount.GetFloat(),
                 RoleId.Doppelganger => CustomOptions.DoppelgangerPlayerCount.GetFloat(),
                 RoleId.WaveCannonJackal => CustomOptions.WaveCannonJackalPlayerCount.GetFloat(),
+                RoleId.Pavlovsowner => CustomOptions.PavlovsownerPlayerCount.GetFloat(),
                 RoleId.Conjurer => Roles.Impostor.Conjurer.PlayerCount.GetFloat(),
                 RoleId.Werewolf => CustomOptions.WerewolfPlayerCount.GetFloat(),
                 RoleId.Knight => Roles.CrewMate.Knight.KnightPlayerCount.GetFloat(),
@@ -990,6 +991,11 @@ namespace SuperNewRoles
                     && !intro.IsGhostRole
                     && (intro.RoleId != RoleId.Werewolf || ModeHandler.IsMode(ModeId.Werewolf))
                     && (intro.RoleId != RoleId.Knight || ModeHandler.IsMode(ModeId.Werewolf)))
+                if (intro.RoleId != RoleId.DefaultRole &&
+                    (intro.RoleId != RoleId.Nun || (MapNames)PlayerControl.GameOptions.MapId == MapNames.Airship)
+                    && !intro.IsGhostRole
+                    && intro.RoleId != RoleId.Pavlovsdogs
+                    )
                 {
                     if (selection == 10)
                     {

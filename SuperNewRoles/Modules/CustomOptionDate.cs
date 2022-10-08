@@ -859,6 +859,18 @@ namespace SuperNewRoles.Modules
 
         public static CustomRoleOption WerewolfOption;
         public static CustomOption WerewolfPlayerCount;
+
+        public static CustomRoleOption PavlovsownerOption;
+        public static CustomOption PavlovsownerPlayerCount;
+        public static CustomOption PavlovsownerCreateCoolTime;
+        public static CustomOption PavlovsownerCreateDogLimit;
+        public static CustomOption PavlovsownerIsTargetImpostorDeath;
+        public static CustomOption PavlovsdogIsImpostorView;
+        public static CustomOption PavlovsdogKillCoolTime;
+        public static CustomOption PavlovsdogCanVent;
+        public static CustomOption PavlovsdogRunAwayKillCoolTime;
+        public static CustomOption PavlovsdogRunAwayDeathTime;
+        public static CustomOption PavlovsdogRunAwayDeathTimeIsMeetingReset;
         //CustomOption
 
         public static CustomOption GMOption;
@@ -1725,6 +1737,19 @@ namespace SuperNewRoles.Modules
             WaveCannonJackalIsImpostorLight = Create(1026, false, CustomOptionType.Neutral, "MadMateImpostorLightSetting", false, WaveCannonJackalOption);
             WaveCannonJackalUseSabo = Create(1029, false, CustomOptionType.Neutral, "JackalUseSaboSetting", false, WaveCannonJackalOption);
             WaveCannonJackalIsSyncKillCoolTime = Create(1017, false, CustomOptionType.Neutral, "IsSyncKillCoolTime", false, WaveCannonJackalOption);
+
+            (PavlovsownerOption = new CustomRoleOption(992, false, CustomOptionType.Neutral, "PavlovsdogsName", RoleClass.Pavlovsdogs.color, 1))
+            .RoleId = RoleId.Pavlovsowner;
+            PavlovsownerPlayerCount = CustomOption.Create(993, false, CustomOptionType.Neutral, "SettingPlayerCountName", AlonePlayers[0], AlonePlayers[1], AlonePlayers[2], AlonePlayers[3], PavlovsownerOption);
+            PavlovsownerCreateCoolTime = CustomOption.Create(994, false, CustomOptionType.Neutral, "PavlovsownerCreateDogCoolTime", 30f, 2.5f, 60f, 2.5f, PavlovsownerOption);
+            PavlovsownerCreateDogLimit = CustomOption.Create(995, false, CustomOptionType.Neutral, "PavlovsownerCreateDogLimit", 1f, 1f, 15f, 1f, PavlovsownerOption);
+            PavlovsownerIsTargetImpostorDeath = CustomOption.Create(996, false, CustomOptionType.Neutral, "PavlovsownerIsTargetImpostorDeath", true, PavlovsownerOption);
+            PavlovsdogIsImpostorView = CustomOption.Create(997, false, CustomOptionType.Neutral, "PavlovsdogIsImpostorView", true, PavlovsownerOption);
+            PavlovsdogKillCoolTime = CustomOption.Create(998, false, CustomOptionType.Neutral, "SheriffCoolDownSetting", 30f, 2.5f, 120f, 2.5f, PavlovsownerOption);
+            PavlovsdogCanVent = CustomOption.Create(999, false, CustomOptionType.Neutral, "MadMateUseVentSetting", true, PavlovsownerOption);
+            PavlovsdogRunAwayKillCoolTime = CustomOption.Create(1000, false, CustomOptionType.Neutral, "PavlovsdogRunAwayKillCoolTime", 20f, 2.5f, 60f, 2.5f, PavlovsownerOption);
+            PavlovsdogRunAwayDeathTime = CustomOption.Create(1001, false, CustomOptionType.Neutral, "PavlovsdogRunAwayDeathTime", 60f, 2.5f, 180f, 2.5f, PavlovsownerOption);
+            PavlovsdogRunAwayDeathTimeIsMeetingReset = CustomOption.Create(1002, false, CustomOptionType.Neutral, "PavlovsdogRunAwayDeathTimeIsMeetingReset", true, PavlovsownerOption);
 
             Roles.Impostor.Conjurer.SetupCustomOptions();
 

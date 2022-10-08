@@ -162,6 +162,8 @@ namespace SuperNewRoles.Modules
         WaveCannonJackal,
         NekoKabocha,
         Doppelganger,
+        Pavlovsdogs,
+        Pavlovsowner,
         Conjurer,
         Werewolf,
         Knight,
@@ -245,6 +247,7 @@ namespace SuperNewRoles.Modules
         MeetingKill,
         KnightProtected,
         KnightProtectClear,
+        PavlovsownerCreateLimitDown
     }
 
     public static class RPCProcedure
@@ -1096,6 +1099,11 @@ namespace SuperNewRoles.Modules
         {
             Seer.ShowFlash(new Color(42f / 255f, 187f / 255f, 245f / 255f));
         }
+        public static void PavlovsownerCreateLimitDown(byte limit)
+        {
+            RoleClass.Pavlovsowner.EndGameCheckCreateLimit = limit;
+            SuperNewRolesPlugin.Logger.LogInfo($"パブロフのオーナー残り刷り込み回数{RoleClass.Pavlovsowner.EndGameCheckCreateLimit}");
+        }
         [HarmonyPatch(typeof(PlayerControl), nameof(PlayerControl.HandleRpc))]
         class RPCHandlerPatch
         {
@@ -1369,6 +1377,9 @@ namespace SuperNewRoles.Modules
                             break;
                         case CustomRPC.GuesserShoot:
                             GuesserShoot(reader.ReadByte(), reader.ReadByte(), reader.ReadByte(), reader.ReadByte());
+                            break;
+                        case CustomRPC.PavlovsownerCreateLimitDown:
+                            PavlovsownerCreateLimitDown(reader.ReadByte());
                             break;
                     }
                 }

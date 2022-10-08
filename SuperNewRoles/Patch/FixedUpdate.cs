@@ -1,4 +1,4 @@
-using HarmonyLib;
+﻿using HarmonyLib;
 using SuperNewRoles.Buttons;
 using SuperNewRoles.CustomObject;
 using SuperNewRoles.Helpers;
@@ -212,6 +212,9 @@ namespace SuperNewRoles.Patch
                                 break;
                             case RoleId.WaveCannonJackal:
                                 JackalSeer.JackalSeerFixedPatch.JackalSeerPlayerOutLineTarget();
+                                break;
+                            case RoleId.Pavlovsowner:
+                                Roles.Neutral.Pavlovsdogs.OwnerFixedUpdate();
                                 break;
                             case RoleId.ConnectKiller:
                                 Roles.Impostor.ConnectKiller.Update();
