@@ -1,4 +1,4 @@
-using SuperNewRoles.CustomRPC;
+
 using SuperNewRoles.Roles;
 
 namespace SuperNewRoles.Mode.SuperHostRoles
@@ -17,6 +17,7 @@ namespace SuperNewRoles.Mode.SuperHostRoles
                 case RoleId.Arsonist:
                 case RoleId.ToiletFan:
                 case RoleId.NiceButtoner:
+                case RoleId.Moving:
                     IsCrewVision = true;
                     break;
                     //クルー視界か
@@ -35,6 +36,8 @@ namespace SuperNewRoles.Mode.SuperHostRoles
                 RoleId.Fox => RoleClass.Fox.IsImpostorLight,
                 RoleId.MayorFriends => RoleClass.MayorFriends.IsImpostorLight,
                 RoleId.BlackCat => RoleClass.BlackCat.IsImpostorLight,
+                RoleId.MadSeer => RoleClass.MadSeer.IsImpostorLight,
+                RoleId.SeerFriends => RoleClass.SeerFriends.IsImpostorLight,
                 _ => false,
             };
         }
@@ -70,6 +73,10 @@ namespace SuperNewRoles.Mode.SuperHostRoles
                     return RoleClass.Spy.CanUseVent;
                 case RoleId.Arsonist:
                     return RoleClass.Arsonist.IsUseVent;
+                case RoleId.MadSeer:
+                    return RoleClass.MadSeer.IsUseVent;
+                case RoleId.SeerFriends:
+                    return RoleClass.SeerFriends.IsUseVent;
                     //ベント無限か
             }
             return IsZeroCoolEngineer;
