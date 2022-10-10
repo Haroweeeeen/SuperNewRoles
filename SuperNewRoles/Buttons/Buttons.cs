@@ -696,7 +696,7 @@ namespace SuperNewRoles.Buttons
                     {
                         if (RoleClass.Jackal.CanCreateFriend)
                         {
-                            target.ResetAndSetRole(RoleId.JackalFriends); //クルーにして フレンズにする
+                            Jackal.CreateJackalFriends (target); //クルーにして フレンズにする
                         }
                         else
                         {
