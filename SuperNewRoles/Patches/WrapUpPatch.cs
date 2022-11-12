@@ -91,9 +91,11 @@ namespace SuperNewRoles.Patches
             Roles.Neutral.Revolutionist.WrapUp();
             Roles.Neutral.Spelunker.WrapUp();
             Roles.Neutral.Hitman.WrapUp();
+            Vampire.WrapUp();
             Roles.Impostor.Matryoshka.WrapUp();
             Roles.Neutral.PartTimer.WrapUp();
-            Roles.CrewMate.KnightProtected_Patch.WrapUp();
+            Roles.Crewmate.KnightProtected_Patch.WrapUp();
+            RoleClass.Tuna.IsMeetingEnd = true;
             Bestfalsecharge.WrapUp();
             if (AmongUsClient.Instance.AmHost)
             {
@@ -104,7 +106,7 @@ namespace SuperNewRoles.Patches
                 });
             }
             SecretRoom.Reset();
-            if (PlayerControl.LocalPlayer.IsRole(RoleId.Painter)) Roles.CrewMate.Painter.WrapUp();
+            if (PlayerControl.LocalPlayer.IsRole(RoleId.Painter)) Roles.Crewmate.Painter.WrapUp();
             Roles.Neutral.Photographer.WrapUp();
             Roles.Impostor.Cracker.WrapUp();
             if (exiled == null) return;
